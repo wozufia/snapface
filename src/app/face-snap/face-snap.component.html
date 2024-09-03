@@ -1,0 +1,21 @@
+<div class="face-snap-card" [ngClass]="{ snapped: isSnaped }">
+    <div>
+        <h2>{{faceSnap.title | titlecase}} </h2>
+        <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+        <p>{{faceSnap.description}}</p>
+        <p>{{faceSnap.createdAt | date: 'd MMMM yyyy'}}</p>
+        <p>
+            <button (click)="onSnap()">{{buttonMsg}}</button>
+            <span [ngStyle]="{color:'rgb(0, '+ faceSnap.snaps +' ,0)'}">🤌 {{faceSnap.snaps}}</span>
+        </p>
+        @if (faceSnap.location) {
+            <p>Localisation : {{ faceSnap.location }}</p>
+        }
+        @else {
+            <p>Localisation : Canada</p>
+        }
+    </div>
+    <div class="view-single-card">
+        <button (click)="onViewFaceSnap()">View single card</button>
+    </div>
+</div>
